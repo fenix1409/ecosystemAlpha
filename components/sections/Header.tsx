@@ -30,7 +30,7 @@ const Header = () => {
                     ))}
                 </ul>
             </div>
-            <Link href={'/like'}><LikeList /></Link>
+            <Link href={'/like'} className='rotate-[42deg]'><LikeList /></Link>
         </header>
     )
 }

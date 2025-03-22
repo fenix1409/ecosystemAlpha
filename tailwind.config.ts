@@ -4,7 +4,7 @@ const {heroui} = require("@heroui/react");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./node_modules/@heroui/theme/dist/components/(card|ripple).js"
+    "./node_modules/@heroui/theme/dist/components/(card|pagination|ripple).js"
 ],
   plugins: [
     heroui({
