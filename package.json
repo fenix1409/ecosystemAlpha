@@ -9,19 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroui/card": "^2.2.15",
+    "@heroui/system": "^2.4.12",
+    "@heroui/theme": "^2.4.12",
+    "@reduxjs/toolkit": "^2.6.1",
+    "@tanstack/react-query": "^5.69.0",
+    "axios": "^1.8.4",
+    "framer-motion": "^12.5.0",
+    "next": "15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.3"
+    "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.2.3",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
