@@ -2,11 +2,25 @@ import { Card, CardBody, CardFooter } from '@heroui/card'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { ProductsType } from '@/types/prodcutsType'
+import { useDispatch, useSelector } from 'react-redux'
+import { likedProducts, deleteLikedProduct } from '@/store/counterSlice'
+import { RootState } from '@/store/store'
 
 const MAX_TITLE_LENGTH = 40
 
 const SingleCard = ({ item }: { item: ProductsType }) => {
     const [isExpanded, setIsExpanded] = useState(false)
+    const dispatch = useDispatch()
+    const likedList = useSelector((state: RootState) => state.liked.orderList)
+    const isLiked = likedList.some((likedItem) => likedItem.id === item.id)
+
+    const handleLike = () => {
+        if (isLiked) {
+            dispatch(deleteLikedProduct(item.id))
+        } else {
+            dispatch(likedProducts(item))
+        }
+    }
 
     const truncatedTitle = item.title.length > MAX_TITLE_LENGTH ? item.title.slice(0, MAX_TITLE_LENGTH) + "..." : item.title
 
@@ -22,7 +36,15 @@ const SingleCard = ({ item }: { item: ProductsType }) => {
                         {isExpanded ? "Show Less" : "Read More"}
                     </div>
                 )}
+                <div className="flex items-center gap-[25px]">
                 <p className="text-green-600 font-bold text-[18px] mt-2">{item.price}$</p>
+                <button
+                    onClick={handleLike}
+                    className={`mt-2 px-3 py-1 rounded-lg transition ${isLiked ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
+                >
+                    {isLiked ? 'Unlike' : 'Like'}
+                </button>
+                </div>
             </CardFooter>
         </Card>
     )
