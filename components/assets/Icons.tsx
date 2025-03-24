@@ -15,3 +15,10 @@ export function LikeList() {
         </svg>
     )
 }
+export function Arrow() {
+    return (
+        <svg width="18" height="35" viewBox="0 0 18 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.75 17.5L0.75 0.603553L17.6464 17.5L0.749999 34.3964L0.75 17.5Z" fill="black" stroke="#060606" strokeWidth="0.5" />
+        </svg>
+    )
+}

@@ -5,12 +5,14 @@ import { ProductsType } from '@/types/prodcutsType'
 import { useDispatch, useSelector } from 'react-redux'
 import { likedProducts, deleteLikedProduct } from '@/store/counterSlice'
 import { RootState } from '@/store/store'
+import { useRouter } from 'next/navigation'
 
 const MAX_TITLE_LENGTH = 40
 
 const SingleCard = ({ item }: { item: ProductsType }) => {
     const [isExpanded, setIsExpanded] = useState(false)
     const dispatch = useDispatch()
+    const router = useRouter()
     const likedList = useSelector((state: RootState) => state.liked.orderList)
     const isLiked = likedList.some((likedItem) => likedItem.id === item.id)
 
@@ -27,7 +29,7 @@ const SingleCard = ({ item }: { item: ProductsType }) => {
     return (
         <Card shadow="lg" className="h-[320px] flex flex-col justify-between rounded-xl overflow-hidden border border-gray-200 bg-white hover:shadow-2xl transition-transform transform hover:scale-105">
             <CardBody className="overflow-hidden p-0 flex justify-center items-center bg-gray-100">
-                <Image alt={item.title} className="w-full object-cover h-[180px] rounded-t-xl" height={180} src={item.image} width={300} />
+                <Image onClick={() => router.push(`/${item.id}`)} alt={item.title} className="w-full object-cover h-[180px] rounded-t-xl" height={180} src={item.image} width={300} />
             </CardBody>
             <CardFooter className="p-4 flex flex-col items-center">
                 <b className="text-[18px] font-semibold text-gray-800">{isExpanded ? item.title : truncatedTitle}</b>
