@@ -11,8 +11,8 @@ const Header = () => {
         },
         {
             id: 2,
-            title: "New",
-            path: "/new"
+            title: "Add Product",
+            path: "/addProduct"
         },
         {
             id: 3,
